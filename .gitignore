@@ -4,5 +4,5 @@ node_modules
 
 #grunt files
 
-build/css/styles.css
-build/js/builds.js
+client/build/css/styles.css
+client/build/js/builds.js
