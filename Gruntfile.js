@@ -1,4 +1,9 @@
 module.exports = function (grunt) {
+	grunt.loadNpmTasks('grunt-run');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
 	grunt.initConfig({
 		run: {
 	    options: {
@@ -23,19 +28,15 @@ module.exports = function (grunt) {
     },
     watch: {
     	js: {
-    		files: ['client/components/**.js'],
+    		files: ['client/components/index.js'],
     		tasks: ['concat:js'],
     	},
     	css: {
-    		files: ['client/css/**.css'],
+    		files: ['client/css/style.css'],
     		tasks: ['concat:css'],
     	},
     },
 	});
-	grunt.loadNpmTasks('grunt-run');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['run']);
-  grunt.registerTask('start', ['concat','watch']);
+	grunt.registerTask('start', ['run'])
+  grunt.registerTask('default', ['concat','watch']);
 }
